@@ -66,3 +66,9 @@ func (m MessageHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 //		}
 //	}
 //
+
+func main() {
+	mux := http.NewServeMux()
+	mux.Handle("/", MessageHandler{"Hello world"})
+	http.ListenAndServe(":8080", mux)
+}
